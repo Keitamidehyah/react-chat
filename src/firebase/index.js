@@ -1,5 +1,14 @@
-import firebase from 'firebase';
-import { firebaseConfig } from './firebase/config.js';
+import React from 'react';
+import * as ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {RootContainer} from './containers';
+import {configureStore} from './modules';
+import './style.css'
 
-export const firebaseApp = firebase.initializeApp(firebaseConfig);
-export const database = firebaseApp.database();
+ReactDOM.render(
+  <Provider store={configureStore()}>
+    <RootContainer />
+  </Provider>,
+  document.getElementById('root')
+
+)
